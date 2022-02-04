@@ -13,7 +13,6 @@ class Solution(object):
         # return target
 
 
-
         #---using list slicing---
         target = []
         for i in range(0, len(nums)):
