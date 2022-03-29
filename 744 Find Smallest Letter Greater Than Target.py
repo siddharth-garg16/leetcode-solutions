@@ -1,17 +1,16 @@
-class Solution(object):
-    def nextGreatestLetter(self, arr, target):
-        start=0
-        end=len(arr)-1
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        N = len(letters)
+        if letters[N-1]<=target:
+            return letters[0]
         
-        if arr[0]>target or arr[end]<=target:
-            return arr[0]
-    
-        while start<=end:
-            middle=start+(end-start)//2
-            
-            if arr[middle]<=target:
-                start=middle+1
+        start, end = 0, N-1
+        while start <= end:
+            mid = (start+end)//2
+            if letters[mid] > target:
+                ans = letters[mid]
+                end = mid-1
             else:
-                end=middle-1
-            
-        return arr[start]
+                start = mid+1
+                
+        return ans
